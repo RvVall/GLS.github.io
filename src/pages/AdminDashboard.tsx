@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import { 
-  Users, ShoppingBag, Clock, CheckCircle, AlertCircle, DollarSign, 
-  TrendingUp, Plus, Edit, Trash2, Save, X, Upload, BookOpen, Package
-} from 'lucide-react';
+import { Users, ShoppingBag, Clock, CheckCircle, AlertCircle, DollarSign, TrendingUp, Plus, CreditCard as Edit, Trash2, Save, X, Upload, BookOpen, Package } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { courses, chapters, products } from '../data/mockData';
 import type { Course, Chapter, Product, Material } from '../data/mockData';
