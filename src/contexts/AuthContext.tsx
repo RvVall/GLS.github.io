@@ -4,6 +4,7 @@ interface User {
   id: string;
   name: string;
   email: string;
+  role: 'user' | 'admin';
   courses: string[];
   chapters: string[];
   purchases: Purchase[];
@@ -22,12 +23,15 @@ interface Purchase {
 
 interface AuthContextType {
   user: User | null;
+  isAdmin: boolean;
   login: (email: string, password: string) => Promise<boolean>;
   register: (name: string, email: string, password: string) => Promise<boolean>;
   logout: () => void;
   purchaseItem: (type: string, itemId: string, itemName: string, price: number) => string;
   hasAccess: (itemId: string) => boolean;
   updatePurchaseStatus: (invoiceId: string, status: 'confirmed' | 'active') => void;
+  getAllUsers: () => User[];
+  getAllPurchases: () => Purchase[];
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -56,11 +60,30 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const login = async (email: string, password: string): Promise<boolean> => {
     // Simulate login - in real app, this would be an API call
+    
+    // Admin login
+    if (email === 'admin@goodlookshoes.com' && password === 'admin123') {
+      const adminUser: User = {
+        id: 'admin-001',
+        name: 'Admin Goodlook',
+        email: 'admin@goodlookshoes.com',
+        role: 'admin',
+        courses: [],
+        chapters: [],
+        purchases: []
+      };
+      setUser(adminUser);
+      localStorage.setItem('goodlook_user', JSON.stringify(adminUser));
+      return true;
+    }
+    
+    // Regular user login
     if (email && password.length >= 6) {
       const newUser: User = {
         id: Date.now().toString(),
         name: email.split('@')[0],
         email,
+        role: 'user',
         courses: [],
         chapters: [],
         purchases: []
@@ -79,6 +102,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         id: Date.now().toString(),
         name,
         email,
+        role: 'user',
         courses: [],
         chapters: [],
         purchases: []
@@ -157,14 +181,28 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     localStorage.setItem('goodlook_user', JSON.stringify(updatedUser));
   };
 
+  const getAllUsers = (): User[] => {
+    // In real app, this would fetch from API
+    const allUsers = localStorage.getItem('goodlook_all_users');
+    return allUsers ? JSON.parse(allUsers) : [];
+  };
+
+  const getAllPurchases = (): Purchase[] => {
+    const allUsers = getAllUsers();
+    return allUsers.flatMap(user => user.purchases || []);
+  };
+
   const value: AuthContextType = {
     user,
+    isAdmin: user?.role === 'admin',
     login,
     register,
     logout,
     purchaseItem,
     hasAccess,
-    updatePurchaseStatus
+    updatePurchaseStatus,
+    getAllUsers,
+    getAllPurchases
   };
 
   return (

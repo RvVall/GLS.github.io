@@ -58,7 +58,8 @@ const Login: React.FC = () => {
           {/* Demo Notice */}
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
             <p className="text-blue-800 text-sm">
-              <strong>Demo:</strong> Masukkan email apa saja dan password minimal 6 karakter untuk login
+              <strong>Demo User:</strong> Email apa saja + password minimal 6 karakter<br/>
+              <strong>Demo Admin:</strong> admin@goodlookshoes.com / admin123
             </p>
           </div>
 

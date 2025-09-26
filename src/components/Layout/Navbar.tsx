@@ -52,6 +52,14 @@ const Navbar: React.FC = () => {
             
             {user ? (
               <div className="flex items-center space-x-4">
+                {user.role === 'admin' && (
+                  <Link
+                    to="/admin"
+                    className="flex items-center space-x-1 text-purple-700 hover:text-purple-900 font-semibold"
+                  >
+                    <span className="text-sm">Admin Panel</span>
+                  </Link>
+                )}
                 <Link
                   to="/dashboard"
                   className="flex items-center space-x-1 text-gray-700 hover:text-blue-900"
@@ -117,6 +125,15 @@ const Navbar: React.FC = () => {
               
               {user ? (
                 <>
+                  {user.role === 'admin' && (
+                    <Link
+                      to="/admin"
+                      onClick={() => setIsOpen(false)}
+                      className="block px-3 py-2 text-base font-medium text-purple-700 hover:text-purple-900 hover:bg-purple-50"
+                    >
+                      Admin Panel
+                    </Link>
+                  )}
                   <Link
                     to="/dashboard"
                     onClick={() => setIsOpen(false)}

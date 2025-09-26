@@ -15,6 +15,7 @@ import Checkout from './pages/Checkout';
 import Products from './pages/Products';
 import Service from './pages/Service';
 import Dashboard from './pages/Dashboard';
+import AdminDashboard from './pages/AdminDashboard';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Blog from './pages/Blog';
@@ -35,6 +36,7 @@ function App() {
               <Route path="/products" element={<Products />} />
               <Route path="/service" element={<Service />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/admin" element={<AdminDashboard />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/blog" element={<Blog />} />
