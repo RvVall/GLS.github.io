@@ -20,6 +20,18 @@ export interface Chapter {
   price: number;
   order: number;
   isLocked: boolean;
+  videoUrl?: string;
+  materials: Material[];
+  tools: string[]; // Product IDs yang dibutuhkan untuk bab ini
+}
+
+export interface Material {
+  id: string;
+  type: 'video' | 'pdf' | 'text' | 'quiz';
+  title: string;
+  content: string; // URL untuk video/pdf, atau text content
+  duration?: string;
+  order: number;
 }
 
 export interface Product {

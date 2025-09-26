@@ -32,6 +32,19 @@ interface AuthContextType {
   updatePurchaseStatus: (invoiceId: string, status: 'confirmed' | 'active') => void;
   getAllUsers: () => User[];
   getAllPurchases: () => Purchase[];
+  // Admin CRUD functions
+  updateUserAccess: (userId: string, courseIds: string[], chapterIds: string[]) => void;
+  deleteUser: (userId: string) => void;
+  updateUserRole: (userId: string, role: 'user' | 'admin') => void;
+  addCourse: (course: Omit<Course, 'id'>) => string;
+  updateCourse: (courseId: string, updates: Partial<Course>) => void;
+  deleteCourse: (courseId: string) => void;
+  addChapter: (chapter: Omit<Chapter, 'id'>) => string;
+  updateChapter: (chapterId: string, updates: Partial<Chapter>) => void;
+  deleteChapter: (chapterId: string) => void;
+  addProduct: (product: Omit<Product, 'id'>) => string;
+  updateProduct: (productId: string, updates: Partial<Product>) => void;
+  deleteProduct: (productId: string) => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -192,6 +205,113 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     return allUsers.flatMap(user => user.purchases || []);
   };
 
+  // Admin CRUD Functions
+  const updateUserAccess = (userId: string, courseIds: string[], chapterIds: string[]) => {
+    const allUsers = getAllUsers();
+    const updatedUsers = allUsers.map(user => {
+      if (user.id === userId) {
+        return { ...user, courses: courseIds, chapters: chapterIds };
+      }
+      return user;
+    });
+    localStorage.setItem('goodlook_all_users', JSON.stringify(updatedUsers));
+  };
+
+  const deleteUser = (userId: string) => {
+    const allUsers = getAllUsers();
+    const filteredUsers = allUsers.filter(user => user.id !== userId);
+    localStorage.setItem('goodlook_all_users', JSON.stringify(filteredUsers));
+  };
+
+  const updateUserRole = (userId: string, role: 'user' | 'admin') => {
+    const allUsers = getAllUsers();
+    const updatedUsers = allUsers.map(user => {
+      if (user.id === userId) {
+        return { ...user, role };
+      }
+      return user;
+    });
+    localStorage.setItem('goodlook_all_users', JSON.stringify(updatedUsers));
+  };
+
+  const addCourse = (courseData: Omit<Course, 'id'>): string => {
+    const newId = `course-${Date.now()}`;
+    const newCourse = { ...courseData, id: newId };
+    const currentCourses = JSON.parse(localStorage.getItem('goodlook_courses') || '[]');
+    const updatedCourses = [...currentCourses, newCourse];
+    localStorage.setItem('goodlook_courses', JSON.stringify(updatedCourses));
+    return newId;
+  };
+
+  const updateCourse = (courseId: string, updates: Partial<Course>) => {
+    const currentCourses = JSON.parse(localStorage.getItem('goodlook_courses') || '[]');
+    const updatedCourses = currentCourses.map((course: Course) => {
+      if (course.id === courseId) {
+        return { ...course, ...updates };
+      }
+      return course;
+    });
+    localStorage.setItem('goodlook_courses', JSON.stringify(updatedCourses));
+  };
+
+  const deleteCourse = (courseId: string) => {
+    const currentCourses = JSON.parse(localStorage.getItem('goodlook_courses') || '[]');
+    const filteredCourses = currentCourses.filter((course: Course) => course.id !== courseId);
+    localStorage.setItem('goodlook_courses', JSON.stringify(filteredCourses));
+  };
+
+  const addChapter = (chapterData: Omit<Chapter, 'id'>): string => {
+    const newId = `chapter-${Date.now()}`;
+    const newChapter = { ...chapterData, id: newId };
+    const currentChapters = JSON.parse(localStorage.getItem('goodlook_chapters') || '[]');
+    const updatedChapters = [...currentChapters, newChapter];
+    localStorage.setItem('goodlook_chapters', JSON.stringify(updatedChapters));
+    return newId;
+  };
+
+  const updateChapter = (chapterId: string, updates: Partial<Chapter>) => {
+    const currentChapters = JSON.parse(localStorage.getItem('goodlook_chapters') || '[]');
+    const updatedChapters = currentChapters.map((chapter: Chapter) => {
+      if (chapter.id === chapterId) {
+        return { ...chapter, ...updates };
+      }
+      return chapter;
+    });
+    localStorage.setItem('goodlook_chapters', JSON.stringify(updatedChapters));
+  };
+
+  const deleteChapter = (chapterId: string) => {
+    const currentChapters = JSON.parse(localStorage.getItem('goodlook_chapters') || '[]');
+    const filteredChapters = currentChapters.filter((chapter: Chapter) => chapter.id !== chapterId);
+    localStorage.setItem('goodlook_chapters', JSON.stringify(filteredChapters));
+  };
+
+  const addProduct = (productData: Omit<Product, 'id'>): string => {
+    const newId = `product-${Date.now()}`;
+    const newProduct = { ...productData, id: newId };
+    const currentProducts = JSON.parse(localStorage.getItem('goodlook_products') || '[]');
+    const updatedProducts = [...currentProducts, newProduct];
+    localStorage.setItem('goodlook_products', JSON.stringify(updatedProducts));
+    return newId;
+  };
+
+  const updateProduct = (productId: string, updates: Partial<Product>) => {
+    const currentProducts = JSON.parse(localStorage.getItem('goodlook_products') || '[]');
+    const updatedProducts = currentProducts.map((product: Product) => {
+      if (product.id === productId) {
+        return { ...product, ...updates };
+      }
+      return product;
+    });
+    localStorage.setItem('goodlook_products', JSON.stringify(updatedProducts));
+  };
+
+  const deleteProduct = (productId: string) => {
+    const currentProducts = JSON.parse(localStorage.getItem('goodlook_products') || '[]');
+    const filteredProducts = currentProducts.filter((product: Product) => product.id !== productId);
+    localStorage.setItem('goodlook_products', JSON.stringify(filteredProducts));
+  };
+
   const value: AuthContextType = {
     user,
     isAdmin: user?.role === 'admin',
@@ -202,7 +322,19 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     hasAccess,
     updatePurchaseStatus,
     getAllUsers,
-    getAllPurchases
+    getAllPurchases,
+    updateUserAccess,
+    deleteUser,
+    updateUserRole,
+    addCourse,
+    updateCourse,
+    deleteCourse,
+    addChapter,
+    updateChapter,
+    deleteChapter,
+    addProduct,
+    updateProduct,
+    deleteProduct
   };
 
   return (
