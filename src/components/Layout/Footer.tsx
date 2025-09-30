@@ -73,16 +73,23 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-yellow-500" />
-                <span className="text-gray-400 text-sm">+62 812-3456-7890</span>
+                <span className="text-gray-400 text-sm">089663344222</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <MapPin className="h-4 w-4 text-yellow-500" />
-                <span className="text-gray-400 text-sm">Jakarta, Indonesia</span>
+              <div className="space-y-1">
+                <div className="flex items-start space-x-2">
+                  <MapPin className="h-4 w-4 text-yellow-500 mt-0.5" />
+                  <div className="text-gray-400 text-sm">
+                    <p className="font-semibold text-white mb-1">Lokasi Toko:</p>
+                    <p>• Graha Kota Sidoarjo</p>
+                    <p>• Sukodono, Sidoarjo</p>
+                    <p>• Graha Pena Surabaya</p>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="mt-4">
               <a
-                href="https://wa.me/6281234567890?text=Halo%20admin%20Goodlook%20Shoes,%20saya%20butuh%20bantuan"
+                href="https://wa.me/62089663344222?text=Halo%20admin%20Goodlook%20Shoes,%20saya%20butuh%20bantuan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"

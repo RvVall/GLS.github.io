@@ -6,7 +6,7 @@ const ChatWidget: React.FC = () => {
 
   const handleWhatsAppRedirect = () => {
     const message = "Halo admin Goodlook Shoes, saya butuh bantuan.";
-    const whatsappUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/62089663344222?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 

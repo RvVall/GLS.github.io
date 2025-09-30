@@ -274,13 +274,14 @@ const Service: React.FC = () => {
                   <span>Informasi Layanan</span>
                 </h3>
                 <div className="text-blue-800 text-sm space-y-2">
-                  <p>✅ Pickup gratis untuk area Jakarta, Depok, Tangerang, Bekasi</p>
+                  <p>✅ Pickup gratis untuk area Sidoarjo dan Surabaya</p>
+                  <p>✅ 3 lokasi toko: Graha Kota Sidoarjo, Sukodono Sidoarjo, Graha Pena Surabaya</p>
                   <p>✅ Estimasi pengerjaan: 3-7 hari kerja</p>
                   <p>✅ Garansi kepuasan 100%</p>
                   <p>✅ Konsultasi gratis via WhatsApp</p>
                 </div>
               </div>
-
+                href="https://wa.me/62089663344222?text=Halo%20admin%20Goodlook%20Shoes,%20saya%20sudah%20submit%20form%20servis"
               <button
                 type="submit"
                 className="w-full bg-blue-900 text-white py-4 rounded-lg font-semibold text-lg hover:bg-blue-800 transition-colors flex items-center justify-center space-x-2"
@@ -301,7 +302,7 @@ const Service: React.FC = () => {
             Tim ahli kami siap membantu Anda menentukan treatment terbaik untuk barang kesayangan
           </p>
           <a
-            href="https://wa.me/6281234567890?text=Halo%20admin%20Goodlook%20Shoes,%20saya%20mau%20konsultasi%20tentang%20servis"
+            href="https://wa.me/62089663344222?text=Halo%20admin%20Goodlook%20Shoes,%20saya%20mau%20konsultasi%20tentang%20servis"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 bg-green-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-700 transition-colors"

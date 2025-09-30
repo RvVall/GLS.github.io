@@ -106,7 +106,7 @@ const NotFound: React.FC = () => {
           <div className="mt-8 text-center">
             <p className="text-gray-500 mb-4">Masih butuh bantuan?</p>
             <a
-              href="https://wa.me/6281234567890?text=Halo%20admin%20Goodlook%20Shoes,%20saya%20menemukan%20error%20404"
+              href="https://wa.me/62089663344222?text=Halo%20admin%20Goodlook%20Shoes,%20saya%20menemukan%20error%20404"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 text-green-600 hover:text-green-700 font-semibold"
