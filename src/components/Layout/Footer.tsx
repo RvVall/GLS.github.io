@@ -98,37 +98,6 @@ const Footer: React.FC = () => {
                 <span>WhatsApp</span>
               </a>
             </div>
-            
-            {/* Quick Map Links */}
-            <div className="mt-4 space-y-2">
-              <p className="text-white font-semibold text-sm">Lihat di Maps:</p>
-              <div className="space-y-1">
-                <a 
-                  href="https://maps.google.com/?q=Graha+Kota+Sidoarjo" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="block text-yellow-400 hover:text-yellow-300 text-xs"
-                >
-                  📍 Graha Kota Sidoarjo
-                </a>
-                <a 
-                  href="https://maps.google.com/?q=Sukodono+Sidoarjo" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="block text-yellow-400 hover:text-yellow-300 text-xs"
-                >
-                  📍 Sukodono Sidoarjo
-                </a>
-                <a 
-                  href="https://maps.google.com/?q=Graha+Pena+Surabaya" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="block text-yellow-400 hover:text-yellow-300 text-xs"
-                >
-                  📍 Graha Pena Surabaya
-                </a>
-              </div>
-            </div>
           </div>
         </div>
 
