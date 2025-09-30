@@ -71,7 +71,7 @@ const Service: React.FC = () => {
           </p>
           <div className="space-y-3">
             <a
-              href="https://wa.me/6281234567890?text=Halo%20admin%20Goodlook%20Shoes,%20saya%20sudah%20submit%20form%20servis"
+              href="https://wa.me/6287726648461?text=Halo%20admin%20Goodlook%20Shoes,%20saya%20sudah%20submit%20form%20servis"
               target="_blank"
               rel="noopener noreferrer"
               className="block bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
