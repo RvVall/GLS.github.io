@@ -219,6 +219,90 @@ const Home: React.FC = () => {
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-yellow-400 to-yellow-500">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-4xl font-bold text-blue-900">Lokasi Toko Kami</h2>
+            <p className="text-xl text-blue-800">Kunjungi langsung toko fisik kami di 3 lokasi strategis</p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Graha Kota Sidoarjo */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="h-48 bg-gray-200">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.2!2d112.7!3d-7.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMjcnMDAuMCJTIDExMsKwNDInMDAuMCJF!5e0!3m2!1sen!2sid!4v1234567890"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-blue-900 mb-2">Graha Kota Sidoarjo</h3>
+                <p className="text-gray-600 mb-4">Jl. Ahmad Yani, Sidoarjo, Jawa Timur</p>
+                <div className="space-y-2 text-sm text-gray-500">
+                  <p>📍 Lantai Dasar, Dekat Food Court</p>
+                  <p>🕒 Senin - Minggu: 09:00 - 21:00</p>
+                  <p>📞 089663344222</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Sukodono Sidoarjo */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="h-48 bg-gray-200">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.5!2d112.72!3d-7.48!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMjgnNDguMCJTIDExMsKwNDMnMTIuMCJF!5e0!3m2!1sen!2sid!4v1234567891"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-blue-900 mb-2">Sukodono Sidoarjo</h3>
+                <p className="text-gray-600 mb-4">Jl. Raya Sukodono, Sidoarjo, Jawa Timur</p>
+                <div className="space-y-2 text-sm text-gray-500">
+                  <p>📍 Ruko Sukodono Square</p>
+                  <p>🕒 Senin - Minggu: 08:00 - 20:00</p>
+                  <p>📞 089663344222</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Graha Pena Surabaya */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="h-48 bg-gray-200">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.2!2d112.75!3d-7.25!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMTUnMDAuMCJTIDExMsKwNDUnMDAuMCJF!5e0!3m2!1sen!2sid!4v1234567892"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-blue-900 mb-2">Graha Pena Surabaya</h3>
+                <p className="text-gray-600 mb-4">Jl. Ahmad Yani No.88, Surabaya, Jawa Timur</p>
+                <div className="space-y-2 text-sm text-gray-500">
+                  <p>📍 Lantai 1, Wing A</p>
+                  <p>🕒 Senin - Minggu: 10:00 - 22:00</p>
+                  <p>📞 089663344222</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-20 bg-gradient-to-r from-yellow-400 to-yellow-500">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="space-y-8">
             <h2 className="text-4xl font-bold text-blue-900">
